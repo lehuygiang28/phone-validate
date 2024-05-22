@@ -4,7 +4,7 @@
         "type": "git",
         "url": "git+https://github.com/lehuygiang28/phone-validate.git"
     },
-    "version": "0.0.1-rc.1",
+    "version": "0.0.1-rc.2",
     "description": "A library to validate Vietnamese phone number",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -43,7 +43,7 @@
         "vnphone"
     ],
     "author": "lehuygiang28 <lehuygiang28@gmail.com>",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@types/jest": "^29.5.12",
         "@types/node": "^20.12.12",
