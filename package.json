@@ -17,6 +17,19 @@
         "prettier": "prettier --check .",
         "prettier:fix": "prettier --write ."
     },
+    "typesVersions": {
+        "*": {
+            "/": [
+                "lib/index.d.js"
+            ],
+            "types": [
+                "lib/types.d.js"
+            ],
+            "regex": [
+                "lib/regex.d.js"
+            ]
+        }
+    },
     "keywords": [
         "phone",
         "vn-phone",
