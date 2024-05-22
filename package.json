@@ -4,7 +4,7 @@
         "type": "git",
         "url": "git+https://github.com/lehuygiang28/phone-validate.git"
     },
-    "version": "0.0.1-rc.2",
+    "version": "0.0.1-rc.3",
     "description": "A library to validate Vietnamese phone number",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
