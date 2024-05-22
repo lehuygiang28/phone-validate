@@ -33,22 +33,24 @@ export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): 
     let provider: string | undefined = undefined;
     let isVirtual = false;
 
-    for (const prefix of options.startWith) {
-        const length = prefixes[prefix];
-        if (!length || phoneNumber.length !== length) {
-            continue;
-        }
-        const escapedPrefix = prefix.replace('+', '\\+');
-        for (const [key, pattern] of Object.entries(ALL_PROVIDERS_REGEX)) {
-            const regex = new RegExp(`^${escapedPrefix}${pattern.source}`);
-            if (regex.test(phoneNumber)) {
-                provider = key;
-                isVirtual = key in VIRTUAL_PROVIDERS_REGEX;
+    if (phoneNumber) {
+        for (const prefix of options.startWith) {
+            const length = prefixes[prefix];
+            if (!length || phoneNumber.length !== length) {
+                continue;
+            }
+            const escapedPrefix = prefix.replace('+', '\\+');
+            for (const [key, pattern] of Object.entries(ALL_PROVIDERS_REGEX)) {
+                const regex = new RegExp(`^${escapedPrefix}${pattern.source}`);
+                if (regex.test(phoneNumber)) {
+                    provider = key;
+                    isVirtual = key in VIRTUAL_PROVIDERS_REGEX;
+                    break;
+                }
+            }
+            if (provider) {
                 break;
             }
-        }
-        if (provider) {
-            break;
         }
     }
 
