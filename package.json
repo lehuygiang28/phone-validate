@@ -1,6 +1,10 @@
 {
-    "name": "phone-validate",
-    "version": "0.0.1",
+    "name": "@vn-utils/phone-validate",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lehuygiang28/phone-validate.git"
+    },
+    "version": "0.0.1-rc.1",
     "description": "A library to validate Vietnamese phone number",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
