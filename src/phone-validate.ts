@@ -8,8 +8,13 @@ import { PhoneInfo, ValidateOptions } from './types';
  * @param {ValidateOptions} options Optional options
  * @param {('0' | '84' | '+84')[]} [options.startWith] - The allowed prefixes for the phone number. Defaults to ['0'].
  * @returns {PhoneInfo} Information about the phone number
+ * @throws {Error} phoneNumber is invalid
  */
 export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): PhoneInfo {
+    if (!phoneNumber || !phoneNumber.trim() || phoneNumber === null || phoneNumber === undefined) {
+        throw new Error('phoneNumber is invalid');
+    }
+
     /**
      * Prefix and the length of input phone number
      *
@@ -24,7 +29,7 @@ export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): 
         '+84': 12,
     };
 
-    if (!options || !options?.startWith?.length) {
+    if (!options || !options.startWith.length) {
         options = {
             startWith: ['0'],
         };
@@ -69,8 +74,9 @@ export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): 
  * @param {ValidateOptions} [options] - Optional options for validation.
  * @param {('0' | '84' | '+84')[]} [options.startWith] - The allowed prefixes for the phone number. Defaults to ['0'].
  * @return {boolean} Returns true if the phone number is valid, false otherwise.
+ * @throws {Error} phoneNumber is invalid
  */
 export function isValidVNPhone(phoneNumber: string, options?: ValidateOptions): boolean {
-    const phoneInfo = getVNPhoneInfo(phoneNumber, options);
-    return phoneInfo.valid;
+    const info = getVNPhoneInfo(phoneNumber, options);
+    return info.valid;
 }
