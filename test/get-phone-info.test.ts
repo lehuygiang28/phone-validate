@@ -226,6 +226,30 @@ describe('getVNPhoneInfo', () => {
         { provider: 'Mobifone_Local', numbers: ['0891234567', '0891321321'] },
     ].forEach(({ provider, numbers }) => {
         numbers.forEach((number) => {
+            test(`should validate with default options: ${provider} - ${number}`, () => {
+                // Arrange
+                const expectedValid = true;
+
+                // Act
+                const isValid = getVNPhoneInfo(number, { startWith: null as any });
+
+                // Assert
+                expect(isValid.valid).toBe(expectedValid);
+                expect(isValid.virtualProvider).toBe(expectedValid);
+                expect(isValid.provider).toBe(provider);
+                expect(isValid.number).toBe(number);
+            });
+        });
+    });
+
+    [
+        { provider: 'Vnsky', numbers: ['0777123456', '0778123456'] },
+        { provider: 'FPT', numbers: ['0775123456', '0775612345'] },
+        { provider: 'Wintel', numbers: ['0551234567', '0559559123'] },
+        { provider: 'Itel', numbers: ['0871234567', '0871321321'] },
+        { provider: 'Mobifone_Local', numbers: ['0891234567', '0891321321'] },
+    ].forEach(({ provider, numbers }) => {
+        numbers.forEach((number) => {
             test(`should validate with options is '0': ${provider} - ${number}`, () => {
                 // Arrange
                 const expectedValid = true;
