@@ -1,0 +1,25 @@
+name: Test Coveralls
+on:
+    pull_request_target:
+        branches: ['*']
+    push:
+        branches: ['*']
+
+jobs:
+    coveralls:
+        name: Coveralls
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+
+            - name: npm install
+              run: |
+                  npm install
+
+            - name: Run tests
+              run: |
+                  npm run test:cov
+
+            - name: Coveralls
+              uses: coverallsapp/github-action@v2
