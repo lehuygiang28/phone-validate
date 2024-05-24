@@ -1,7 +1,7 @@
-import { getVNPhoneInfo, isValidVNPhone } from '../src';
+import { isValidVNPhone } from '../src';
 import { ValidateOptions } from '../src/types';
 
-describe('Phone number validation', () => {
+describe('isValidVNPhone', () => {
     const options: ValidateOptions = { startWith: ['0', '84', '+84'] };
     const testCases = [
         {
@@ -132,35 +132,36 @@ describe('Phone number validation', () => {
             test(`validates ${provider} number: ${number}`, () => {
                 // Arrange
                 const expectedValid = true;
-                const expectedProvider = provider;
 
                 // Act
-                const info = getVNPhoneInfo(number, options);
                 const isValid = isValidVNPhone(number, options);
 
                 // Assert
-                expect(info.valid).toBe(expectedValid);
-                expect(info.provider).toBe(expectedProvider);
                 expect(isValid).toBe(expectedValid);
             });
         });
     });
 
     // Test invalid numbers
-    ['1234567890', 'abc', '00981212', '123', '', undefined, null, NaN].forEach(
-        (invalidNumber, index) => {
-            test(`invalid number - test case ${index + 1}`, () => {
-                // Arrange
-                const expectedValid = false;
+    ['', undefined, null, NaN].forEach((invalidNumber) => {
+        test(`should throw Error on invalid number: ${invalidNumber}`, () => {
+            // Act & Assert
+            expect(() => isValidVNPhone(invalidNumber as unknown as string, options)).toThrow(
+                'phoneNumber is invalid',
+            );
+        });
+    });
 
-                // Act
-                const info = getVNPhoneInfo(invalidNumber as unknown as string, options);
-                const isValid = isValidVNPhone(invalidNumber as unknown as string, options);
+    ['1234567890', 'abc', '00981212', '123'].forEach((wrongNumber) => {
+        test(`should validate wrong number: ${wrongNumber}`, () => {
+            // Arrange
+            const expectedValid = false;
 
-                // Assert
-                expect(info.valid).toBe(expectedValid);
-                expect(isValid).toBe(expectedValid);
-            });
-        },
-    );
+            // Act
+            const isValid = isValidVNPhone(wrongNumber, options);
+
+            // Assert
+            expect(isValid).toBe(expectedValid);
+        });
+    });
 });

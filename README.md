@@ -1,9 +1,10 @@
-# phone-validate
+# @vn-utils/phone-validate
 
 <p align="center">
 <a href="https://www.npmjs.com/package/@vn-utils/phone-validate" target="_blank"><img src="https://img.shields.io/npm/v/@vn-utils/phone-validate" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/package/@vn-utils/phone-validate" target="_blank"><img src="https://img.shields.io/npm/l/@vn-utils/phone-validate" alt="Package License"><a>
-<a href="https://www.npmjs.com/package/@vn-utils/phone-validate" target="_blank"><img src="https://img.shields.io/npm/dm/@vn-utils/phone-validate" alt="NPM Downloads"></a>
+<a href="https://www.npmjs.com/package/@vn-utils/phone-validate" target="_blank"><img src="https://img.shields.io/npm/d18m/@vn-utils/phone-validate" alt="NPM Downloads"></a>
+<a href='https://coveralls.io/github/lehuygiang28/phone-validate?branch=main'><img src='https://coveralls.io/repos/github/lehuygiang28/phone-validate/badge.svg?branch=main' alt='Coverage Status'/></a>
 </p>
 
 <strong>An open-source library support to validate Vietnamese phone number.</strong>
