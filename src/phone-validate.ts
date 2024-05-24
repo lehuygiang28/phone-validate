@@ -11,7 +11,7 @@ import { PhoneInfo, ValidateOptions } from './types';
  * @throws {Error} phoneNumber is invalid
  */
 export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): PhoneInfo {
-    if (!phoneNumber || !phoneNumber.trim() || phoneNumber === null || phoneNumber === undefined) {
+    if (!phoneNumber || !phoneNumber.trim()) {
         throw new Error('phoneNumber is invalid');
     }
 
@@ -29,8 +29,8 @@ export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): 
         '+84': 12,
     };
 
-    let { startWith } = options || {};
-    if (!options || !startWith?.length) {
+    let { startWith } = options || { startWith: ['0'] };
+    if (!startWith?.length) {
         startWith = ['0'];
     }
 
