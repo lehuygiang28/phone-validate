@@ -29,17 +29,16 @@ export function getVNPhoneInfo(phoneNumber: string, options?: ValidateOptions): 
         '+84': 12,
     };
 
-    if (!options || !options.startWith.length) {
-        options = {
-            startWith: ['0'],
-        };
+    let { startWith } = options || {};
+    if (!options || !startWith?.length) {
+        startWith = ['0'];
     }
 
     let provider: string | undefined = undefined;
     let isVirtual = false;
 
     if (phoneNumber) {
-        for (const prefix of options.startWith) {
+        for (const prefix of startWith) {
             const length = prefixes[prefix];
             if (!length || phoneNumber.length !== length) {
                 continue;
