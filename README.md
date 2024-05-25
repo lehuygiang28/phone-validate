@@ -11,24 +11,48 @@
 
 ## Installation
 
+### Node
+
 ```bash
 $ npm install @vn-utils/phone-validate
+# or
+$ yarn add @vn-utils/phone-validate
+#or
+$ pnpm install @vn-utils/phone-validate
+```
+
+### Browser
+
+```html
+<!-- Latest -->
+<script src="https://unpkg.com/@vn-utils/phone-validate/lib/bundle.js"></script>
+
+<!-- Or with selected version -->
+<script src="https://unpkg.com/@vn-utils/phone-validate@<VERSION_HERE>/lib/bundle.js"></script>
 ```
 
 ## Usage
+
+```ts
+// ES Module
+import { isValidVNPhone } from '@vn-utils/phone-validate';
+
+// CommonJS
+const { isValidVNPhone } = require('@vn-utils/phone-validate');
+```
 
 ### isValidVNPhone
 
 ```ts
 import { isValidVNPhone } from '@vn-utils/phone-validate';
 
-console.log(isValidVNPhone('0981123456')); // true
-console.log(isValidVNPhone('84981123456'), { startWith: ['0', '84'] }); // true
-console.log(isValidVNPhone('+84981123456'), { startWith: ['+84'] }); // true
+isValidVNPhone('0981123456'); // true
+isValidVNPhone('84981123456'), { startWith: ['0', '84'] }; // true
+isValidVNPhone('+84981123456'), { startWith: ['+84'] }; // true
 
-console.log(isValidVNPhone('0111111111')); // false
-console.log(isValidVNPhone('some thing')); // false
-console.log(isValidVNPhone('0111111111')); // false
+isValidVNPhone('0111111111'); // false
+isValidVNPhone('some thing'); // false
+isValidVNPhone('0111111111'); // false
 ```
 
 ### getVNPhoneInfo
@@ -36,7 +60,7 @@ console.log(isValidVNPhone('0111111111')); // false
 ```ts
 import { getVNPhoneInfo } from '@vn-utils/phone-validate';
 
-console.log(getVNPhoneInfo('0981123456'));
+getVNPhoneInfo('0981123456');
 // {
 //   valid: true,
 //   number: '+84981123456',
@@ -45,13 +69,29 @@ console.log(getVNPhoneInfo('0981123456'));
 // }
 ```
 
+```html
+<script>
+    vnUtilsPhoneValidate.isValidVNPhone('0981123456');
+    vnUtilsPhoneValidate.getVNPhoneInfo('0981123456');
+
+    // Or
+    var { isValidVNPhone, getVNPhoneInfo } = vnUtilsPhoneValidate;
+    isValidVNPhone('0981123456');
+    getVNPhoneInfo('0981123456');
+</script>
+```
+
+## License
+
+**[MIT](LICENSE) © [Lê Huy Giang](https://github.com/lehuygiang28)**
+
 ## Support
 
-#### This is an open-source and free project. If you find it useful, please consider supporting it by starring ⭐️ the repository on [Github](https://github.com/lehuygiang28/phone-validate) and buying me a coffee.
+### This is an open-source and free project. If you find it useful, please consider supporting it by starring ⭐️ the repository on [Github](https://github.com/lehuygiang28/phone-validate) and buying me a coffee.
 
 <a href="https://www.buymeacoffee.com/lehuygiang28" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
-### Contributors
+## Contributors
 
 <a href="https://github.com/lehuygiang28/phone-validate/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=lehuygiang28/phone-validate&max=20" />
