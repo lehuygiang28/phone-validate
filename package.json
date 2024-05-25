@@ -12,9 +12,9 @@
         "lib"
     ],
     "scripts": {
-        "build": "rimraf ./lib && webpack && tsc",
-        "lib": "rimraf ./lib && tsc",
-        "bundle": "rimraf ./lib && webpack",
+        "build": "rimraf ./lib && webpack && tsc && rimraf ./lib/export.bundle.d.ts",
+        "lib": "rimraf ./lib && tsc && rimraf ./lib/export.bundle.d.ts",
+        "bundle": "rimraf ./lib && webpack && rimraf ./lib/*.d.ts --glob",
         "prepare": "npm run build",
         "test": "jest",
         "test:cov": "jest --coverage",
