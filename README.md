@@ -87,11 +87,11 @@ getVNPhoneInfo('0981123456');
 
 ## Support
 
-#### This is an open-source and free project. If you find it useful, please consider supporting it by starring ⭐️ the repository on [Github](https://github.com/lehuygiang28/phone-validate) and buying me a coffee.
+### This is an open-source and free project. If you find it useful, please consider supporting it by starring ⭐️ the repository on [Github](https://github.com/lehuygiang28/phone-validate) and buying me a coffee.
 
 <a href="https://www.buymeacoffee.com/lehuygiang28" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
-### Contributors
+## Contributors
 
 <a href="https://github.com/lehuygiang28/phone-validate/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=lehuygiang28/phone-validate&max=20" />
