@@ -31,6 +31,13 @@ jobs:
               run: npm run build
 
             - name: 'Publish'
-              run: npm publish --access public --provenance
+              run: |
+                  if [[ "${{ github.event.release.tag_name }}" == *"rc"* ]]; then
+                    npm publish --access public --provenance --tag rc
+                  elif [[ "${{ github.event.release.tag_name }}" == *"beta"* ]]; then
+                    npm publish --access public --provenance --tag beta
+                  else
+                    npm publish --access public --provenance --tag latest
+                  fi
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
