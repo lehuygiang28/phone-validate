@@ -23,12 +23,16 @@ $ pnpm install @vn-utils/phone-validate
 
 ### Browser
 
-```html
-<!-- Latest -->
-<script src="https://unpkg.com/@vn-utils/phone-validate/lib/bundle.js"></script>
+#### Latest
 
-<!-- Or with selected version -->
-<script src="https://unpkg.com/@vn-utils/phone-validate@<VERSION_HERE>/lib/bundle.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/phone-validate/lib/bundle.js"></script>
+```
+
+#### Selected version
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@vn-utils/phone-validate@<VERSION_HERE>/lib/bundle.js"></script>
 ```
 
 ## Usage
